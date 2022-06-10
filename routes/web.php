@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('profile');
+Route::get('/pass', function () {
+    return view('pass.profile');
 });
+
+//store posts data
+// Route::post('/posts', [PostController::class, 'store'])->name('posts');
+// Route::get('/pass', [PostController::class, 'index'])->name('posts');
+
+//show create form
+Route::get('/create', [PostController::class, 'create']);
+Route::post('/pass', [PostController::class, 'store']);
+

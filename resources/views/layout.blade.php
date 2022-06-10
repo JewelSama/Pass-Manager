@@ -75,6 +75,69 @@
             });
 
         </script>
+
+
+  {{-- modal create --}}
+  <div class="modal fade {{$errors->any() ? 'show' : ''}}" 
+    id="modalCreateForm" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true"
+    style ={{$errors->any() ? "display:block; padding: 0px;" : ''}}>
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel3">Add to Password Manager</h5>
+        </div>
+        <div class="modal-body">
+
+
+            <form class="needs-validation" method="POST" action="/pass">
+                @csrf
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">App</label>
+                    <input type="text" required class="form-control" placeholder="Enter app name" name="app">
+                    @error('app')
+                        <div class="text-danger text-sm">{{$message}}</div>
+                    @enderror
+                </div>
+                    
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">Username</label>
+                    <input type="text" required class="form-control" placeholder="Enter username" name="username">
+                    @error('username')
+                        <div class="text-danger text-sm">{{$message}}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">Password</label>
+                    <input type="text" required class="form-control" placeholder="Enter your password" name="password">
+                    @error('password')
+                        <div class="text-danger text-sm">{{$message}}</div>
+                    @enderror
+                </div>   
+                
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">Alternate login</label>
+                    <input type="text" required class="form-control" placeholder="Enter alt login" name="alternate_login">
+                    @error('alternate_login')
+                        <div class="text-danger text-sm">{{$message}}</div>
+                    @enderror
+                  </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
+
+ 
+</div>
+
+
     @yield('content')
 </body>
 </html>
