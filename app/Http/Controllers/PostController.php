@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Posts;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -19,6 +20,9 @@ class PostController extends Controller
             'password' => 'required',
             'alternate_login' => 'required'
         ]);
-        return redirect('/pass');
+
+        Posts::create($formFields);
+
+        return redirect('/pass')->with('message', 'Password added successfully');
     }
 }

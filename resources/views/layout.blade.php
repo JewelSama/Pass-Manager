@@ -134,10 +134,53 @@
   </div>
 
 
+
+  {{-- modal login --}}
+  <div class="modal fade {{$errors->any() ? 'show' : ''}}" id="modalLoginForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    style ={{$errors->any() ? "display:block; padding: 0px;" : ''}}>
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login to your account</h5>
+        </div>
+        <div class="modal-body">
+
+
+            <form class=" needs-validation" method="POST" action="">
+                @csrf
+                <div class="mb-3">
+                  <label for="validationCustom01" class="form-label">Email</label>
+                  <input type="email" required class="form-control" placeholder="Enter your email" name="email">
+                  @error('email')
+                    <div class="text-danger text-sm"></div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="validationCustom01" class="form-label">Password</label>
+                  <input type="password" required class="form-control" placeholder="Enter your password" name="password">
+                  @error('password')
+                  <div class="text-danger text-sm"></div>
+                @enderror
+                </div>              
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Login</button>
+            
+          <p>
+              Don't have an account? <a href="#">Register</a>
+          </p>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
  
 </div>
 
-
+    <x-flash-message />
     @yield('content')
 </body>
 </html>
