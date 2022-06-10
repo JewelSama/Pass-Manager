@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,11 @@ Route::get('/pass', function () {
 Route::get('/create', [PostController::class, 'create']);
 Route::post('/pass', [PostController::class, 'store']);
 
+//show register form
+Route::get('/register', [UserController::class, 'create']);
+
+//create user
+Route::post('/users', [UserController::class, 'store']);
+
+//log out
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
