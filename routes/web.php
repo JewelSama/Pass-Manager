@@ -28,10 +28,17 @@ Route::get('/create', [PostController::class, 'create']);
 Route::post('/pass', [PostController::class, 'store']);
 
 //show register form
-Route::get('/register', [UserController::class, 'create']);
-
+Route::get('/register', [UserController::class, 'create'])->name('register.page');
 //create user
-Route::post('/users', [UserController::class, 'store']);
+Route::post('/users', [UserController::class, 'store'])->name('register');
+
+
+
 
 //log out
-Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+// Route::get('/login', [UserController::class, 'login'])->name('login');
+
+//login user
+Route::post('/login', [UserController::class, 'login'])->name('login');

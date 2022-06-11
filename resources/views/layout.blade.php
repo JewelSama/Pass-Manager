@@ -77,9 +77,7 @@
 
 
   {{-- modal create --}}
-  <div class="modal fade {{$errors->any() ? 'show' : ''}}" 
-    id="modalCreateForm" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true"
-    style ={{$errors->any() ? "display:block; padding: 0px;" : ''}}>
+  <div class="modal fade" id="modalCreateForm" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -145,20 +143,20 @@
         <div class="modal-body">
 
 
-            <form class=" needs-validation" method="POST" action="">
+            <form class="needs-validation" method="POST" action="{{route('login')}}">
                 @csrf
                 <div class="mb-3">
                   <label for="validationCustom01" class="form-label">Email</label>
                   <input type="email" required class="form-control" placeholder="Enter your email" name="email">
                   @error('email')
-                    <div class="text-danger text-sm"></div>
+                    <div class="text-danger text-sm">{{$message}}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label for="validationCustom01" class="form-label">Password</label>
                   <input type="password" required class="form-control" placeholder="Enter your password" name="password">
                   @error('password')
-                  <div class="text-danger text-sm"></div>
+                  <div class="text-danger text-sm">{{$message}}</div>
                 @enderror
                 </div>              
 
@@ -168,7 +166,7 @@
           <button type="submit" class="btn btn-primary">Login</button>
             
           <p>
-              Don't have an account? <a data-bs-toggle="modal" data-bs-target="#modalRegisterForm" href="#">Register</a>
+              Don't have an account? <a href="{{route('register.page')}}">Register</a>
           </p>
         </div>
     </form>
@@ -177,61 +175,19 @@
   </div>
 
 
-  {{-- modal register --}}
+  {{-- modal register
   <div class="modal fade {{$errors->any() ? 'show' : ''}}" id="modalRegisterForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-    style ={{$errors->any() ? "display:block; padding: 0px;" : ''}}>
+    style ="{{$errors->any() ? 'display:block; padding: 0px;' : ''}}">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Create an account</h5>
           </div>
-          <div class="modal-body">
-  
-  
-              <form class="" method="POST" action="/users" enctype="multipart/form-data">
-                      @csrf
-                  <div class="mb-3">
-                      <label for="validationCustom01" class="form-label">Username</label>
-                      <input type="text" required class="form-control" name="username" placeholder="Enter username" name="username" value="{{old('username')}}">
-                      @error('username')
-                          <div class="text-danger text-sm">{{$message}}</div>
-                      @enderror
-                  </div>
-                  <div class="mb-3">
-                    <label for="validationCustom01" class="form-label">Email</label>
-                    <input type="email" required class="form-control" placeholder="Enter your email" name="email" value="{{old('email')}}">
-                    @error('email')
-                    <div class="text-danger text-sm">{{$message}}</div>
-                @enderror
-                  </div>
-                  <div class="mb-3">
-                    <label for="validationCustom01" class="form-label">Password</label>
-                    <input type="password" required class="form-control" placeholder="Enter your password" name="password">
-                    @error('password')
-                    <div class="text-danger text-sm">{{$message}}</div>
-                @enderror
-                  </div>              
-                  <div class="mb-3">
-                    <label for="validationCustom01" class="form-label">Confirm password</label>
-                    <input type="password" required class="form-control" placeholder="Confirm your password" name="password_confirmation">
-                    
-                  </div>   
-  
-                  <div class="mb-3">
-                    <label for="" class="form-label">Profile Pic</label>
-                    <input type="file" required class="form-control" name="logo">
-                    
-                  </div>              
-  
-  
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Register</button>
-          </div>
-      </form>
+          <div class="modal-body"> 
+            
         </div>
       </div>
-    </div>
+    </div> --}}
   
         <!-- Modal Logout -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -246,7 +202,8 @@
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary">Cancel</button>
-          <form action="{{route('logout')}}">
+          <form action="/logout" method="POST">
+            @csrf
             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Logout</button>
         </form>
         </div>
