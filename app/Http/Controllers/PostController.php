@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function create(){
-            return view('pass.profile');
+        $posts = Posts::get();
+
+            return view('pass.profile', [
+                'posts' => $posts
+            ]);
         }
     
     //store posts data
@@ -30,10 +34,10 @@ class PostController extends Controller
     
     ]);
 
-        return redirect('/pass')->with('message', 'Password added successfully');
+        return redirect('/profile')->with('message', 'Password added successfully');
     }
 
     public function profile(){
-        return view('/profile');
+        return view('/profile', ['posts' => auth()->user()->posts()->get()]);
     }
 }

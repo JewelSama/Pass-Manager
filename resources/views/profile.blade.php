@@ -13,50 +13,61 @@
     <table id="example" class="table table-striped table-bordered" style="width: 1200px;" >
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
+                <th>S/N</th>
+                <th>App</th>
+                <th>username</th>
+                <th>Password</th>
+                <th>Alternate Login</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
+            @unless($posts->isEmpty())
+            @foreach($posts as $i => $post)
             <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-                <td>$320,800</td>
+                <td>{{$loop->iteration}}</td>
+                <td>{{$post->app}}</td>
+                <td>{{$post->username}}</td>
+                <td>
+                <div style="display: flex; justify-content:space-between">
+                <input type="password" id="pass{{$i}}" value="{{$post->password}}" style="border: none; background-color:inherit">
+                <div style="background-color: rgb(199, 191, 191); height: 30px; width: 30px; border-radius:3px;">
+                    <i class="fa-solid fa-eye" style="color: #000; font-size: 18px; margin-left: 6px; margin-top:6px;"></i>
+                </div>
+                </td>
+                
+                <td>{{$post->alternate_login}}</td>
+                <td>
+                <div style="display: flex;">
+                <div style="background-color: #33b5e5; height: 30px; width: 30px; border-radius:3px; margin-left: 5px;"><i class='bx bxs-pencil' style="color: #fff; font-size: 18px; margin-left: 6px; margin-top:6px;"></i></div>
+                <div style="background-color: red; height: 30px; width: 30px; border-radius:3px; margin-left: 6px;"><i class='bx bx-trash' style="color: #fff; font-size: 18px; margin-left: 6px; margin-top:6px;"></i>  </div>
+            </div>
+                </td>
             </tr>
+            @endforeach
+
+            @else
             <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011-07-25</td>
-                <td>$170,750</td>
+                <td>
+                    <p>No Password yet😉</p>
+                </td>
             </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009-01-12</td>
-                <td>$86,000</td>
-            </tr>
-        </tbody>
+            @endunless
+
+
         <tfoot>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
+                <th>S/N</th>
+                <th>App</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Alternate Login</th>
+                <th>Action</th>
             </tr>
         </tfoot>
     </table>
 </div>
+<script>
+
+</script>
     @endsection
