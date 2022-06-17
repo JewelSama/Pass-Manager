@@ -32,4 +32,8 @@ class PostController extends Controller
 
         return redirect('/pass')->with('message', 'Password added successfully');
     }
+
+    public function profile(){
+        return view('/profile');
+    }
 }

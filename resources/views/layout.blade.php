@@ -37,7 +37,7 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/pass">Home</a>
               </li>
             </ul>
             <span>
@@ -49,7 +49,7 @@
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                       @auth
-                      <li><a class="dropdown-item" href="#">Profile</a></li>
+                      <li><a class="dropdown-item" href="{{route('profile')}}">Profile</a></li>
                       <li><a class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" href="{{route('logout')}}">Logout</a></li>
                       @endauth
 

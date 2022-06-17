@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/pass', function () {
     return view('pass.profile');
 });
+Route::get('/profile', [PostController::class, 'profile'])->name('profile');
 
 //store posts data
 // Route::post('/posts', [PostController::class, 'store'])->name('posts');

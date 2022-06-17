@@ -13,6 +13,6 @@
         <i class='bx bxs-pencil' style="margin-left: 3px;"></i>
         {{-- </div> --}}
     </button>
-        <h3 style="margin-left: 40px;">your credentials</h3>
+        <h3 style="margin-left: 30px; margin-top: 20px;">Add password(s)</h3>
     </div>
           </div>
