@@ -31,9 +31,9 @@
                 <td>
                 <div style="display: flex; justify-content:space-between">
                 <input type="password" id="pass{{$i}}" value="{{$post->password}}" style="border: none; background-color:inherit">
-                <div style="background-color: rgb(199, 191, 191); height: 30px; width: 30px; border-radius:3px;">
-                    <i class="fa-solid fa-eye" style="color: #000; font-size: 18px; margin-left: 6px; margin-top:6px;"></i>
-                </div>
+                <button class="toggle" data-element="pass{{$i}}" style="background-color: rgb(199, 191, 191); height: 30px;border:none;  width: 30px; border-radius:3px;">
+                    <i class="fa-solid fa-eye" style="color: #000; font-size: 18px; margin-left: -1px; margin-top:5px;"></i>
+                </button>
                 </td>
                 
                 <td>{{$post->alternate_login}}</td>
@@ -68,6 +68,8 @@
     </table>
 </div>
 <script>
+    const toggle = $('toggle');
+    
 
 </script>
     @endsection
