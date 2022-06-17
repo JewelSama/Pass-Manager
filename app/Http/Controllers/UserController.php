@@ -31,7 +31,7 @@ class UserController extends Controller
         $user = User::create($formFields);
         //login
         auth()->login($user);
-        return redirect()->back()->with('message', 'User logged in');
+        return redirect('/pass')->with('message', 'User logged in');
     }
 
     //logout

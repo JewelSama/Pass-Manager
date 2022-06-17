@@ -12,6 +12,10 @@ class Posts extends Model
         'app',
         'password',
         'alternate_login',
-        'username'
+        'username',
+        'user_id'
     ];
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

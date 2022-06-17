@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-    <form class="" method="POST" action="{{route('register')}}" enctype="multipart/form-data">
+  <!-- <div class="w-75"> -->
+    <form class="mt-5 flex mx-auto w-25" method="POST" action="{{route('register')}}" enctype="multipart/form-data">
         @csrf
     <div class="mb-3">
         <label for="validationCustom01" class="form-label">Username</label>
@@ -48,5 +50,6 @@
     <button type="submit" class="btn btn-primary">Register</button>
     </div>
     </form>
+<!-- </div> -->
 </body>
 </html>

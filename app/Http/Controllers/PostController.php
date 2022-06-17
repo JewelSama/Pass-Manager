@@ -21,7 +21,14 @@ class PostController extends Controller
             'alternate_login' => 'required'
         ]);
 
-        Posts::create($formFields);
+        Posts::create([
+        'app' => $request-> app,
+        'username' => $request-> username,
+        'password' => $request-> password,
+        'alternate_login' => $request-> alternate_login,
+        'user_id' => auth()->id()
+    
+    ]);
 
         return redirect('/pass')->with('message', 'Password added successfully');
     }

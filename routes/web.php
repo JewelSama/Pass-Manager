@@ -28,7 +28,7 @@ Route::get('/create', [PostController::class, 'create']);
 Route::post('/pass', [PostController::class, 'store']);
 
 //show register form
-Route::get('/register', [UserController::class, 'create'])->name('register.page');
+Route::get('/register', [UserController::class, 'create'])->name('register.page')->middleware('guest');
 //create user
 Route::post('/users', [UserController::class, 'store'])->name('register');
 
@@ -41,4 +41,4 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 // Route::get('/login', [UserController::class, 'login'])->name('login');
 
 //login user
-Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
