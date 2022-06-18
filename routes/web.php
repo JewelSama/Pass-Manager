@@ -34,6 +34,11 @@ Route::get('/register', [UserController::class, 'create'])->name('register.page'
 //show Edit form
 Route::get('edit/{id}', [PostController::class, 'edit'])->name('edit.pg');
 
+//update edited
+// Route::put('/profile', [PostController::class, 'update']);
+Route::put('update-data/{id}', [PostController::class, 'update']);
+
+
 //create user
 Route::post('/users', [UserController::class, 'store'])->name('register');
 
