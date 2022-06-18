@@ -16,6 +16,9 @@ class PostController extends Controller
         }
     
     //store posts data
+    public function index(){
+        return view('pass.profile');
+    }
 
     public function store(Request $request){
         $formFields = $request->validate([
@@ -43,10 +46,11 @@ class PostController extends Controller
 
     //show Edit form
 
-    public function edit(Posts $posts){
+    public function edit($id){
 
         // $p = Posts::where('id', $posts)->first();
-        dd($posts->app);
-        return view('/edit', ['post' => $posts]);
+        // dd($posts->app);
+        $post = Posts::find($id);
+        return view('edit', compact('post'));
     }
 }

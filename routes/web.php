@@ -32,7 +32,7 @@ Route::post('/pass', [PostController::class, 'store']);
 Route::get('/register', [UserController::class, 'create'])->name('register.page')->middleware('guest');
 
 //show Edit form
-Route::get('edit/{$posts}', [PostController::class, 'edit'])->name('edit.post');
+Route::get('edit/{id}', [PostController::class, 'edit'])->name('edit.pg');
 
 //create user
 Route::post('/users', [UserController::class, 'store'])->name('register');
