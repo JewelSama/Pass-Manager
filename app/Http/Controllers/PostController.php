@@ -54,17 +54,7 @@ class PostController extends Controller
         return view('edit', compact('post'));
     }
 
-//    public function update(Request $request, Posts $postss){
-    //    $formfields = $request->validate([
-            // 'app' => 'required',
-            // 'username' => 'required',
-            // 'password' => 'required',
-            // 'alternate_login' => 'required',
 
-    //    ]); 
-//    }
-    // $postss->update($formFields);
-//    return()->redirect('/profile')->with('message', 'Password Updated Successfully');
 
         public function update(Request $request, $id){
             $posts = Posts::find($id);
@@ -76,4 +66,9 @@ class PostController extends Controller
             return redirect('/profile')->with('message', 'Password updated successfully!');
         }
 
+        public function destroy($id){
+            $posts = Posts::find($id);
+            $posts->delete();
+            return redirect('/profile')->with('message', 'Password deleted successfully🚮');
+        }
 }

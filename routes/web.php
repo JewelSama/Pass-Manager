@@ -38,6 +38,8 @@ Route::get('edit/{id}', [PostController::class, 'edit'])->name('edit.pg');
 // Route::put('/profile', [PostController::class, 'update']);
 Route::put('update-data/{id}', [PostController::class, 'update']);
 
+//Delete pass
+Route::get('/delete/{id}', [Postcontroller::class, 'destroy']);
 
 //create user
 Route::post('/users', [UserController::class, 'store'])->name('register');
