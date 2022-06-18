@@ -44,7 +44,7 @@
                 <div class="dropdown">
                     <button class=" btn dropdown-toggle text-white" id="dropdownMenuButton1" 
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{{asset('images/anime6.jpg')}}" width="40" height="40" class="rounded-circle">
+                    <img src="{{asset('storage/'.auth()->user()->logo)}}" width="40" height="40" class="rounded-circle">
                       
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -132,9 +132,77 @@
 
 
 
+
+
+
+
+
+
+
+  {{-- modal edit --}}
+  <div class="modal fade" id="modalEditForm" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel3">Edit password</h5>
+        </div>
+        <div class="modal-body">
+
+
+            <form class="needs-validation" method="POST" action="/pass/{{$post->id}}">
+            
+                @csrf
+                @method('PUT')
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">App</label>
+                    <input type="text" value="{{$post->app}}" required class="form-control" placeholder="Enter app name" name="app">
+                    @error('app')
+                        <div class="text-danger text-sm">{{$message}}</div>
+                    @enderror
+                </div>
+                    
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">Username</label>
+                    <input type="text" value="{{$post->username}}" required class="form-control" placeholder="Enter username" name="username">
+                    @error('username')
+                        <div class="text-danger text-sm">{{$message}}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">Password</label>
+                    <input type="text" value="{{$post->password}}" required class="form-control" placeholder="Enter your password" name="password">
+                    @error('password')
+                        <div class="text-danger text-sm">{{$message}}</div>
+                    @enderror
+                </div>   
+                
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">Alternate login</label>
+                    <input type="text" value="{{$post->alternate_login}}" required class="form-control" placeholder="Enter alt login" name="alternate_login">
+                    @error('alternate_login')
+                        <div class="text-danger text-sm">{{$message}}</div>
+                    @enderror
+                  </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Edit</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
   {{-- modal login --}}
-  <div class="modal fade {{$errors->any() ? 'show' : ''}}" id="modalLoginForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-    style ={{$errors->any() ? "display:block; padding: 0px;" : ''}}>
+  <div class="modal fade {{$errors->any() ? 'show' : ''}}" id="modalLoginForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -176,8 +244,7 @@
 
 
   {{-- modal register
-  <div class="modal fade {{$errors->any() ? 'show' : ''}}" id="modalRegisterForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-    style ="{{$errors->any() ? 'display:block; padding: 0px;' : ''}}">
+  <div class="modal fade {{$errors->any() ? 'show' : ''}}" id="modalRegisterForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">

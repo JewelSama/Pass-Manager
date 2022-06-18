@@ -3,5 +3,10 @@
 @section('content')
 @include('partials._create')
 
-Home 😁👍
+@auth
+<h1 style="text-align: center;"><b>Home 😁👍</b></h1>
+@endauth
+@guest
+    <h1 style="text-align: center; justify-content: center;"><b>Login or register to add passwords</b></h1>
+@endguest
 @endsection

@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/pass', function () {
     return view('pass.profile');
 });
-Route::get('/profile', [PostController::class, 'profile'])->name('profile');
+Route::get('/profile', [PostController::class, 'profile'])->name('profile')->middleware('auth');
 
 //store posts data
-// Route::post('/posts', [PostController::class, 'store'])->name('posts');
-// Route::get('/pass', [PostController::class, 'index'])->name('posts');
+Route::post('/posts', [PostController::class, 'store'])->name('posts');
+Route::get('/pass', [PostController::class, 'index'])->name('posts');
 
 //show create form
 Route::get('/create', [PostController::class, 'create']);
@@ -30,6 +30,10 @@ Route::post('/pass', [PostController::class, 'store']);
 
 //show register form
 Route::get('/register', [UserController::class, 'create'])->name('register.page')->middleware('guest');
+
+//show Edit form
+Route::get('edit/{$posts}', [PostController::class, 'edit'])->name('edit.post');
+
 //create user
 Route::post('/users', [UserController::class, 'store'])->name('register');
 

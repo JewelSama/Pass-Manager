@@ -39,8 +39,8 @@
                 <td>{{$post->alternate_login}}</td>
                 <td>
                 <div style="display: flex;">
-                <div style="background-color: #33b5e5; height: 30px; width: 30px; border-radius:3px; margin-left: 5px;"><i class='bx bxs-pencil' style="color: #fff; font-size: 18px; margin-left: 6px; margin-top:6px;"></i></div>
-                <div style="background-color: red; height: 30px; width: 30px; border-radius:3px; margin-left: 6px;"><i class='bx bx-trash' style="color: #fff; font-size: 18px; margin-left: 6px; margin-top:6px;"></i>  </div>
+                <div style="background-color: #33b5e5; height: 30px; width: 30px; border-radius:3px; margin-left: 5px;"><a data-bs-toggle="modal" data-bs-target="#modalEditForm" href="{{ route('edit.post',$post->id) }}"><i class='bx bxs-pencil' style="color: #fff; font-size: 18px; margin-left: 6px; margin-top:6px;"></i></a></div>
+                <div style="background-color: red; height: 30px; width: 30px; border-radius:3px; margin-left: 6px;"><a href="#"><i class='bx bx-trash' style="color: #fff; font-size: 18px; margin-left: 6px; margin-top:6px;"></i></a></div>
             </div>
                 </td>
             </tr>
@@ -68,7 +68,22 @@
     </table>
 </div>
 <script>
-    const toggle = $('toggle');
+    const Toggles = document.querySelectorAll('.toggle');
+    Toggles.forEach((x) => {
+        x.addEventListener('click', ()=>{
+            
+            let element = document.getElementById(x.dataset.element);
+            let icon = x.children[0];
+            
+            if(element.type == 'text'){
+            element.setAttribute('type', 'password')
+            icon.className = "fa-solid fa-eye"
+            } else {
+            element.setAttribute('type', 'text')
+            icon.className = "fa-solid fa-eye-slash"
+            }
+        })
+    })
     
 
 </script>

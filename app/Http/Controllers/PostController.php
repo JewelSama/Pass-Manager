@@ -40,4 +40,13 @@ class PostController extends Controller
     public function profile(){
         return view('/profile', ['posts' => auth()->user()->posts()->get()]);
     }
+
+    //show Edit form
+
+    public function edit(Posts $posts){
+
+        // $p = Posts::where('id', $posts)->first();
+        dd($posts->app);
+        return view('/edit', ['post' => $posts]);
+    }
 }
