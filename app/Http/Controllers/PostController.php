@@ -69,6 +69,6 @@ class PostController extends Controller
         public function destroy($id){
             $posts = Posts::find($id);
             $posts->delete();
-            return redirect('/profile')->with('message', 'Password deleted successfully🚮');
+            return redirect('/profile')->with('message', 'Password deleted successfully!🚮');
         }
 }
